@@ -1,0 +1,38 @@
+.inputbox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.inputbox label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.inputbox input,
+.inputbox select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inputbox select {
+  background-color: #fff;
+}
+
+.inputbox input:disabled,
+.inputbox select:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
