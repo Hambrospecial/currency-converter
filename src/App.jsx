@@ -27,34 +27,41 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="input-container">
-        <InputBox
-          label="From"
-          amount={amount}
-          selectedCurrency={fromCurrency}
-          onAmountChange={(amount) => setAmount(amount)}
-          onCurrencyChange={setFromCurrency}
-          currencyOptions={currencyOptions}
-        />
-        <button type="button" className="swap-button" onClick={swapCurrencies}>
-          ↔
-        </button>
-        <InputBox
-          label="To"
-          amount={convertedAmount}
-          selectedCurrency={toCurrency}
-          onCurrencyChange={setToCurrency}
-          currencyOptions={currencyOptions}
-          amountDisabled
-        />
-      </div>
-      <button
-        type="submit"
-        className="convert-button"
-        onClick={() => convert()}
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          convert();
+        }}
       >
-        Convert {fromCurrency.toUpperCase()} to {toCurrency.toUpperCase()}
-      </button>
+        <div className="input-container">
+          <InputBox
+            label="From"
+            amount={amount}
+            selectedCurrency={fromCurrency}
+            onAmountChange={(amount) => setAmount(amount)}
+            onCurrencyChange={setFromCurrency}
+            currencyOptions={currencyOptions}
+          />
+          <button
+            type="button"
+            className="swap-button"
+            onClick={swapCurrencies}
+          >
+            ↔
+          </button>
+          <InputBox
+            label="To"
+            amount={convertedAmount}
+            selectedCurrency={toCurrency}
+            onCurrencyChange={setToCurrency}
+            currencyOptions={currencyOptions}
+            amountDisabled
+          />
+        </div>
+        <button type="submit" className="convert-button">
+          Convert {fromCurrency.toUpperCase()} to {toCurrency.toUpperCase()}
+        </button>
+      </form>
     </div>
   );
 }
