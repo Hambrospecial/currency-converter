@@ -22,7 +22,8 @@ function App() {
   const currencyInfo = useCurrencyInfo(selectedCurrency);
   const currencyOptions = Object.keys(currencyInfo);
   const convert = () => {
-    setConvertedAmount(amount * currencyInfo[toCurrency]);
+    if (fromCurrency === toCurrency) setConvertedAmount(amount);
+    else setConvertedAmount(amount * currencyInfo[toCurrency]);
   };
 
   return (
